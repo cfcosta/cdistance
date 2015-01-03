@@ -1,7 +1,7 @@
 #include "distance.h"
 
-geo_point make_geo_point(float x, float y) {
-  geo_point result;
+GeoPoint make_GeoPoint(float x, float y) {
+  GeoPoint result;
 
   result.lat = x;
   result.lng = y;
@@ -9,18 +9,18 @@ geo_point make_geo_point(float x, float y) {
   return result;
 };
 
-geo_point to_radians(geo_point origin) {
+GeoPoint to_radians(GeoPoint origin) {
   float x, y;
 
   x = origin.lat * (M_PI / 180);
   y = origin.lng * (M_PI / 180);
 
-  return make_geo_point(x, y);
+  return make_GeoPoint(x, y);
 };
 
-float distance_between(geo_point first_point, geo_point second_point) {
-  geo_point p1 = to_radians(first_point);
-  geo_point p2 = to_radians(second_point);
+float distance_between(GeoPoint first_point, GeoPoint second_point) {
+  GeoPoint p1 = to_radians(first_point);
+  GeoPoint p2 = to_radians(second_point);
 
   float delta_lat = p2.lat - p1.lat;
   float delta_lng = p2.lng - p1.lng;

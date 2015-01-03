@@ -9,9 +9,9 @@
 typedef struct {
   float lat;
   float lng;
-} geo_point;
+} GeoPoint;
 
-geo_point make_geo_point(float, float);
-geo_point to_radians(geo_point);
-float distance_between(geo_point, geo_point);
+GeoPoint make_GeoPoint(float, float);
+GeoPoint to_radians(GeoPoint);
+float distance_between(GeoPoint, GeoPoint);
 #endif
