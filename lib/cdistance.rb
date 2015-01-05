@@ -8,6 +8,12 @@ module Cdistance
 
   if FFI::Platform.mac?
     lib_file << '.bundle'
+  elsif FFI::Platform.unix?
+    lib_file << '.so'
+  elsif FFI::Platform.windows?
+    lib_file << '.dll'
+  else
+    lib_file << '.so'
   end
 
   ffi_lib FFI.map_library_name(lib_file)
